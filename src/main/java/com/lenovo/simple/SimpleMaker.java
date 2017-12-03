@@ -49,8 +49,8 @@ public class SimpleMaker extends AbstractMaker {
 		 param.put("servicePackage", container.getService().getLpackage());
 		 param.put("serviceSubfix", container.getService().getSubfix());
 		 //serviceImpl
-		 param.put("serviceImplPackage", container.getServiceImpl().getLpackage());
-		 param.put("serviceImplSubfix", container.getServiceImpl().getSubfix());
+//		 param.put("serviceImplPackage", container.getServiceImpl().getLpackage());
+//		 param.put("serviceImplSubfix", container.getServiceImpl().getSubfix());
 		 
 		 
 //		 param.put("pkAssigned", IDStragegy.identity.getType().equals(entity.getPk().getStrategy())? false : true);
