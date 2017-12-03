@@ -26,9 +26,14 @@ public class Table {
 		this.dbcolumns = dbcolumns;
 	}
 	public String getBeanName() {
-		//首字母大写
-		char[] cs=this.name.toCharArray();
-        cs[0]-=32;
-        return String.valueOf(cs);
+		String[] ss = this.name.split("_");
+		StringBuffer sb = new StringBuffer();
+		for (int i = 0 ; i < ss.length; i++) {
+			//首字母大写
+			char[] cs=ss[i].toCharArray();
+	        cs[0]-=32;
+	        sb.append(String.valueOf(cs));
+		}
+		return sb.toString();
 	}
 }

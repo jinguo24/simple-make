@@ -106,6 +106,6 @@
   					,
   				</#if>
   			</#list>
-  		WHERE ${ormFields.pk.coloum}=${r"#{"}${pk.coloum}${r"}"}
+  		WHERE ${ormFields.pk.coloum}=${r"#{"}${ormFields.pk.coloum}${r"}"}
   </update>
 </mapper>

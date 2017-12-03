@@ -36,28 +36,17 @@ public class FreeMarkerUtils {
 	
 	public void makeFileByFile(String templateFilePath, String destFilePath,
 			Map<String, Object> model) throws IOException, TemplateException {
-		makeFileByFile(templateFilePath, destFilePath, model, true, false);
-	}
-
-	public void makeFileByFile(String templateFilePath, String destFilePath,
-			Map<String, Object> model, boolean override) throws IOException, TemplateException {
-		makeFileByFile(templateFilePath, destFilePath, model, override, false);
-	}
-
-	public void makeFileByFile(String templateFilePath, String destFilePath,
-			Map<String, Object> model, boolean override, boolean append) throws IOException, TemplateException {
 		File file = new File(templateFilePath);
 		Template t = config.getTemplate(file.getName());
 		File destFile = new File(destFilePath);
-		if ((!override) && (destFile.exists())) {
-			log.error(" error : file already exist."+destFilePath);
-			return;
+		if (destFile.exists()) {
+			destFile.delete();
 		}
 		File parent = destFile.getParentFile();
-		if (parent != null) {
+		if (!parent.exists()) {
 			parent.mkdirs();
 		}
-		Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(destFile, append), "utf-8"));
+		Writer out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(destFile, false), "utf-8"));
 		t.process(model, out);
 		out.close();
 		log.info(" create file success."+destFilePath);

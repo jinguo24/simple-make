@@ -11,7 +11,7 @@ public class FreeMarkerInvoker implements TemplateInvoker {
 	@Override
 	public void createFile(String template, String fileName, String floder,Map<String,Object> param) {
 		try {
-			new FreeMarkerUtils(template).makeFileByFile(template, floder+File.separator+fileName, param, false);
+			new FreeMarkerUtils(template).makeFileByFile(template, floder+File.separator+fileName, param);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (TemplateException e) {

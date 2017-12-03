@@ -102,7 +102,7 @@ public class ParamUtil {
 				}else {
 					fields.add(f);
 				}
-				if (dc.isAutoIncreate()) {
+				if (!dc.isAutoIncreate()) {
 					insertFields.add(f);
 				}
 			}

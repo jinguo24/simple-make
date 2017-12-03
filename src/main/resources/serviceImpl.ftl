@@ -1,4 +1,4 @@
-package ${serviceImplPackage};
+package ${servicePackage};
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import ${daoPackage}.${beanName}${daoSubfix};
 import ${beanpackage}.${beanName};
 @Service("${beanName}${serviceSubfix}")
-public class ${beanName}${serviceImplSubfix}{
+public class ${beanName}${serviceSubfix}{
 
 	@Autowired
 	private ${beanName}${daoSubfix} dao;

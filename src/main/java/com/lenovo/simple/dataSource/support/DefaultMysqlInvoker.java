@@ -34,9 +34,10 @@ public final class DefaultMysqlInvoker extends AbstractDataSourceInvoker {
 	}
 
 	private static final String[] StringArrays = new String[]{"char","varchar","longtext","mediumtext","text","tinytext"};
-	private static final String[] IntegerArrays = new String[]{"int","mediumint"};
-	private static final String[] ShortArrays = new String[]{"smallint","tinyint"};
-	private static final String[] LongArrays = new String[]{"bigint"};
+	private static final String[] IntegerArrays = new String[]{"int","mediumint","smallint","tinyint","bigint"};
+	//	private static final String[] IntegerArrays = new String[]{"int","mediumint"};
+//	private static final String[] ShortArrays = new String[]{"smallint","tinyint"};
+//	private static final String[] LongArrays = new String[]{"bigint"};
 	private static final String[] FloatArrays = new String[]{"float"};
 	private static final String[] DoubleArrays = new String[]{"double","numeric"};
 	private static final String[] DecimalArrays = new String[]{"decimal"};
@@ -51,12 +52,12 @@ public final class DefaultMysqlInvoker extends AbstractDataSourceInvoker {
 		if (Arrays.asList(IntegerArrays).contains(dbtype)) {
 			return "java.lang.Integer";
 		}
-		if (Arrays.asList(ShortArrays).contains(dbtype)) {
-			return "java.lang.Short";
-		}
-		if (Arrays.asList(LongArrays).contains(dbtype)) {
-			return "java.lang.Long";
-		}
+//		if (Arrays.asList(ShortArrays).contains(dbtype)) {
+//			return "java.lang.Short";
+//		}
+//		if (Arrays.asList(LongArrays).contains(dbtype)) {
+//			return "java.lang.Long";
+//		}
 		if (Arrays.asList(FloatArrays).contains(dbtype)) {
 			return "java.lang.Float";
 		}
@@ -82,12 +83,12 @@ public final class DefaultMysqlInvoker extends AbstractDataSourceInvoker {
 		if (Arrays.asList(IntegerArrays).contains(dbtype)) {
 			return true;
 		}
-		if (Arrays.asList(ShortArrays).contains(dbtype)) {
-			return true;
-		}
-		if (Arrays.asList(LongArrays).contains(dbtype)) {
-			return true;
-		}
+//		if (Arrays.asList(ShortArrays).contains(dbtype)) {
+//			return true;
+//		}
+//		if (Arrays.asList(LongArrays).contains(dbtype)) {
+//			return true;
+//		}
 		if (Arrays.asList(FloatArrays).contains(dbtype)) {
 			return true;
 		}

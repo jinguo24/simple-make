@@ -36,9 +36,9 @@ public class SimpleMaker extends AbstractMaker {
 		 //orm
 		 try {
 			param.put("ormFields", ParamUtil.getOrmFields(container, table, "mybatis"));
-		} catch (OrmColumnTypeServiceNotFoundException e) {
+		 } catch (OrmColumnTypeServiceNotFoundException e) {
 			e.printStackTrace();
-		}
+		 }
 		 param.put("dbfields", getAllFields(table));
 		 param.put("tableName", table.getName());
 		 //dao
@@ -91,6 +91,6 @@ public class SimpleMaker extends AbstractMaker {
 	
 	public static void main(String[] args) {
 		SimpleMaker s = new SimpleMaker();
-		s.make("F:/Code/codegenerator/simple-make/src/main/resources/define.xml");
+		s.make("D:/lenovo/project/git/sp/simple-make/src/main/resources/define.xml");
 	}
 }
