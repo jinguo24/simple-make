@@ -175,7 +175,7 @@ public final class DefaultXmlParser extends AbstractEntityParser<Element> {
 					for (Element ea:columns) {
 						TableColumn tc = new TableColumn();
 						tc.setName(ea.attributeValue("name"));
-						tc.setCombor(ea.attributeValue("combor"));
+						tc.setCombor(ea.attributeValue("combor").replace("<", "&lt;").replace(">", "&gt;"));
 						alist.put(tc.getName(), tc);
 					}
 					table.setColumns(alist);

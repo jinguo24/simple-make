@@ -39,7 +39,7 @@ public abstract class AbstractMaker {
 						}
 						//生成orm
 						if (null != container.getOrm()) {
-							ORMFileCreatorFactory.createFile(container.getOrm().getModel(), container.getOrm().getSubfix(), container.getOrm().getFloder(), e.getName(), param);
+							ORMFileCreatorFactory.createFile(container.getOrm().getModel(), container.getOrm().getSubfix(), container.getOrm().getFloder(), e.getBeanName(), param);
 						}
 						//生成dao
 						if (null != container.getDao()) {

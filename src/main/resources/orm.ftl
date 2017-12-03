@@ -12,26 +12,24 @@
 	 ${dbfields}
   </sql>
   
-  <!-- 分页获取模板数据 -->
+  <!-- 分页获取数据 -->
   <select id="queryPageMap" resultMap="BaseResultMap" parameterType="java.util.HashMap">
   		select
   		<include refid="Base_Column_List"></include>
   		from ${tableName} where 1=1
   		
-  		<if test="${ormFields.pk.querycondition}" >and ${ormFields.pk.coloum}
-   			<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
-  				<#if  ormFields.pk.combar = 'like'  > 
-  					like CONCAT ${r"'%#{"}${ormFields.pk.coloum}${r"}%'"}
-  				<#else>
-  				 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
-  				</#if>
-  			</if> 		
-  		</if> 
+ 		<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
+			<#if  ormFields.pk.combar = 'like'  > 
+				like CONCAT ('%',${r"#{"}${queryField.coloum}${r"}"},'%')
+			<#else>
+			 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
+			</#if>
+		</if> 		
   		
   		<#list ormFields.fields as queryField>
   			<if test="${queryField.querycondition}" > and ${queryField.coloum} 
   				<#if  queryField.combar = 'like'  > 
-  					like CONCAT ${r"'%#{"}${queryField.coloum}${r"}%'"}
+  					like CONCAT ('%',${r"#{"}${queryField.coloum}${r"}"},'%')
   				<#else>
   				 	${queryField.combar} ${r"#{"}${queryField.coloum}${r"}"}
   				</#if>
@@ -40,24 +38,22 @@
   		limit ${r"#{startnum}"},${r"#{pageSize}"}
   </select>
   
-  <!-- 分页获取楼层数据总条数 -->
+  <!-- 分页获取数据总条数 -->
   <select id="queryCount" parameterType="java.util.HashMap" resultType="Integer">
 	   SELECT count(1) FROM ${tableName} 
 		WHERE 1=1
-		<if test="${ormFields.pk.querycondition}" >and ${ormFields.pk.coloum}
-   			<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
-  				<#if  ormFields.pk.combar = 'like'  > 
-  					like CONCAT ${r"'%#{"}${ormFields.pk.coloum}${r"}%'"}
-  				<#else>
-  				 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
-  				</#if>
-  			</if> 		
-  		</if> 
+  		<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
+			<#if  ormFields.pk.combar = 'like'  > 
+				like CONCAT ('%',${r"#{"}${queryField.coloum}${r"}"},'%')
+			<#else>
+			 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
+			</#if>
+ 		</if> 		
   		
   		<#list ormFields.fields as queryField>
   			<if test="${queryField.querycondition}" > and ${queryField.coloum} 
   				<#if  queryField.combar = 'like'  > 
-  					like CONCAT ${r"'%#{"}${queryField.coloum}${r"}%'"}
+  					like CONCAT ('%',${r"#{"}${queryField.coloum}${r"}"},'%')
   				<#else>
   				 	${queryField.combar} ${r"#{"}${queryField.coloum}${r"}"}
   				</#if>
@@ -73,7 +69,7 @@
 		where ${ormFields.pk.coloum}=${r"#{id}"}
   </select>
   
-  <!-- 添加模板数据 -->
+  <!-- 添加数据 -->
   <insert id="add" parameterType="${beanpackage}.${beanName}">
   		INSERT INTO ${tableName}(
   			<#list ormFields.insertFields as attr>
