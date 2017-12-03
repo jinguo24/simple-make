@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
-import com.lenovo.common.mybatis.annotation.DatabaseTemplate;
-import com.lenovo.common.mybatis.dao.BaseIbatisDao;
+import ${basepackage}.common.mybatis.annotation.DatabaseTemplate;
+import ${basepackage}.common.mybatis.dao.BaseIbatisDao;
 import ${beanpackage}.${beanName};
 
 @Repository

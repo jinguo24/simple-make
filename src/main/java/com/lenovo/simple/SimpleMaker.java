@@ -20,6 +20,7 @@ public class SimpleMaker extends AbstractMaker {
 	protected Map<String, Object> definedTemplateParam(Container container,
 			Table table) {
 		 Map<String, Object> param = new  HashMap<String,Object>();
+		 param.put("basepackage", container.getBean().getBasePackage());
 		 param.put("beanpackage", container.getBean().getLpackage());
 		 param.put("beanName", table.getBeanName());
 		 //bean

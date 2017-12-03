@@ -8,14 +8,14 @@
             	<type value="mysql"/>
             </datasource>
             
-         	<config modelfloder="D:/lenovo/project/git/sp/simple-make/src/main/resources" filefloder="D:/lenovo/project/git/testsimple">
+         	<config basePackage="com.simple" modelfloder="D:/lenovo/project/git/sp/simple-make/src/main/resources" filefloder="D:/lenovo/project/git/testsimple">
          		 <orm model="orm.ftl" floder="orm" subfix="SqlMap.xml" type="mybatis"/>
-				 <bean model="bean.ftl" package="com.simple.model" floder="bean" />
-				 <dao model="dao.ftl" package="com.simple.dao"  floder="dao" subfix="Dao"/> 
-				 <service model="serviceImpl.ftl" package="com.simple.service" floder="service" subfix="Service"/>
+				 <bean model="bean.ftl" package="model" floder="" />
+				 <dao model="dao.ftl" package="dao"  floder="" subfix="Dao"/> 
+				 <service model="serviceImpl.ftl" package="service" floder="" subfix="Service"/>
 				 <!-- <service model="service.ftl" package="com.lenovo.modelApp.api" floder="service" subfix="Service"/> -->  
 				 <!-- <serviceImpl model="serviceImpl.ftl" package="com.lenovo.modelApp.service" floder="service/impl" subfix="ServiceImpl"/>  -->
-				 <controller model="controller.ftl" package="com.lenovo.controller" floder="controller" subfix="Controller"/>
+				 <controller model="controller.ftl" package="controller" floder="" subfix="Controller"/>
          	</config>
          	
          	<tables>

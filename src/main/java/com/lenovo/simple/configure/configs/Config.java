@@ -4,6 +4,7 @@ public class Config {
 	protected String model;
 	protected String floder;
 	protected String subfix;
+	protected String basePackage;
 	public String getSubfix() {
 		return subfix;
 	}
@@ -21,5 +22,11 @@ public class Config {
 	}
 	public void setFloder(String floder) {
 		this.floder = floder;
+	}
+	public String getBasePackage() {
+		return basePackage;
+	}
+	public void setBasePackage(String basePackage) {
+		this.basePackage = basePackage;
 	}
 }

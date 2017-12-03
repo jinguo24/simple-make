@@ -123,7 +123,8 @@ public final class DefaultXmlParser extends AbstractEntityParser<Element> {
 			return null; 
 		}
 		LogicBean lbean = new LogicBean();
-		lbean.setLpackage(bean.attributeValue("package"));
+		lbean.setBasePackage(config.attributeValue("basePackage"));
+		lbean.setLpackage(config.attributeValue("basePackage")+"."+bean.attributeValue("package"));
 		lbean.setModel(config.attributeValue("modelfloder")+"/"+bean.attributeValue("model"));
 		lbean.setFloder(config.attributeValue("filefloder")+"/"+bean.attributeValue("floder"));
 		lbean.setSubfix(bean.attributeValue("subfix"));
