@@ -56,6 +56,11 @@ public abstract class AbstractMaker {
 							LogicBeanCreatorFacoty.createFile(container.getServiceImpl().getModel(), container.getServiceImpl().getLpackage(), container.getServiceImpl().getSubfix(), 
 								container.getServiceImpl().getFloder(), e.getBeanName(), param);
 						}
+						//生成controller
+						if (null != container.getController()) {
+							LogicBeanCreatorFacoty.createFile(container.getController().getModel(), container.getController().getLpackage(), container.getController().getSubfix(), 
+								container.getController().getFloder(), e.getBeanName(), param);
+						}
 						//生成其他文件
 						createOther(container,e);
 					}
