@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xsd:schema xmlns="http://www.lenovo.com.cn/schema/simpleMake"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:tool="http://www.springframework.org/schema/tool"
+	targetNamespace="http://www.lenovo.com.cn/schema/simpleMake" 
+	elementFormDefault="qualified" attributeFormDefault="qualified">
+	
+	<xsd:annotation>
+		<xsd:documentation><![CDATA[ Namespace support for the simpleMake . ]]></xsd:documentation>
+	</xsd:annotation>
+	
+	<!-- orm type -->
+	<xs:simpleType name="ormType"> 
+	  <xs:restriction base="xs:string"> 
+	    <xs:enumeration value="mybatis"/> 
+	    <xs:enumeration value="hibernate"/> 
+	  </xs:restriction> 
+	</xs:simpleType> 
+	
+	<!-- attribute type -->
+	<xs:simpleType name="attributeType"> 
+	  <xs:restriction base="xs:string"> 
+	    <xs:enumeration value="Integer"/> 
+	    <xs:enumeration value="String"/> 
+	    <xs:enumeration value="Date"/>
+	    <xs:enumeration value="Double"/>
+	    <xs:enumeration value="Float"/>
+	    <xs:enumeration value="Long"/>
+	    <xs:enumeration value="Boolean"/>
+	  </xs:restriction> 
+	</xs:simpleType> 
+	
+	<!-- id strategy -->
+	<xs:simpleType name="idStrategy"> 
+	  <xs:restriction base="xs:string"> 
+	    <xs:enumeration value="assigned"/> 
+	    <xs:enumeration value="identity"/> 
+	  </xs:restriction> 
+	</xs:simpleType> 
+	
+	<!-- container -->
+	<xs:element name="makeContainer" > 
+		<xs:attribute name="baseFloder" type=”xs:string” use=”required” /> 
+		<xs:attribute name="basepackage" type=”xs:string” use=”required” /> 
+		<xs:attribute name="datasource" type=”xs:string” use=”required” /> 
+		<xs:attribute name="ormType" use=ormType /> 
+		<xs:attribute name="ormVersion" type=”xs:string” use=”required” /> 
+		<xs:attribute name="beanFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="daoFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="serviceFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="serviceImplFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="controllerFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="pageListFtlFile" type=”xs:string” use=”required” /> 
+		<xs:attribute name="pageAddFtlFile" type=”xs:string” use=”required” />
+		<xs:attribute name="pageEditFtlFile" type=”xs:string” use=”required” />
+		<xs:element name="entity" use=”required” maxOccurs="unbounded">
+			<xs:attribute name="tableName" type=”xs:string” use=”required” /> 
+			<xs:attribute name="beanName" type=”xs:string” use=”required” />
+			<xs:attribute name="override" type=”xs:string” />
+			<xsd:complexType>
+				<xs:sequence>
+					<xs:element name="attributes">
+						<xsd:complexType>
+							<xs:sequence>
+								<xs:group ref="attributes"/>
+							</xs:sequence>
+						</xsd:complexType>
+					</xs:element>
+					<xs:element name="id">
+						<xsd:complexType>
+						 	<xs:sequence>
+								<xs:group ref="id"/>
+							</xs:sequence>
+						</xsd:complexType>
+					</xs:element>
+				</xs:sequence>
+			</xsd:complexType>
+		</xs:element>
+	</xs:element>
+	
+	<!-- 基础attribute -->
+	<xs:group name="baseAttribute" > 
+		<xs:sequence>
+			<xs:element name="title" type=”xs:string” use=”required” />
+			<xs:element name="coloum" type=”xs:string” use=”required” />
+			<xs:element name="type" type=”xs:string” use=”attributeType” />
+			<xs:element name="nullable" type=”xs:string” />
+			<xs:element name="length" type=”xs:string” use=”required” />
+			<xs:element name="defaultValue" type=”xs:string” />
+		</xs:sequence>
+	</xs:group>
+	
+	<xs:group name="attributes" > 
+	    <xsd:extension base="baseAttribute">
+	    	<xs:sequence>
+				<xs:element name="query" type=”xs:string” />
+				<xs:element name="combor" type=”xs:string” use=”required” />
+			</xs:sequence>
+		</xsd:extension>
+	</xs:group>
+	
+	<xs:group name="id" > 
+	    <xsd:extension base="baseAttribute">
+	    	<xs:sequence>
+				<xs:element name="strategy" type=”idStrategy” />
+			</xs:sequence>
+		</xsd:extension>
+	</xs:group>
+</xsd:schema>

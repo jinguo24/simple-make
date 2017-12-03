@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<containers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <container >
+            <datasource>
+            	<url>jdbc:mysql://10.120.26.111:3306/cms1?useUnicode=true&amp;characterEncoding=UTF-8</url>
+            	<username value="sys_temp"/>
+            	<password value="lenovo2015"/>
+            	<type value="mysql"/>
+            </datasource>
+            
+         	<config modelfloder="D:/lenovo/project/git/simple-make/src/main/resources" filefloder="F:/Code/git/lenovo-modeladmin-services/service/src/main/resources">
+         		 <orm model="orm.ftl" floder="orm" subfix="SqlMap.xml" type="mybatis"/>
+				 <bean model="bean.ftl" package="com.lenovo.modelApp.model" floder="bean" />
+				 <dao model="dao.ftl" package="com.lenovo.modelApp.dao"  floder="dao" subfix="Dao"/> 
+				 <service model="service.ftl" package="com.lenovo.modelApp.api" floder="service" subfix="Service"/>  
+				 <serviceImpl model="serviceImpl.ftl" package="com.lenovo.modelApp.service" floder="service/impl" subfix="ServiceImpl"/> 
+				 <controller model="controller.ftl" package="com.lenovo.controller" floder="controller" subfix="Controller"/>
+         	</config>
+         	
+         	<tables>
+         		<table name="abc" />
+         		<table name="abcd" >
+         			<column name="name" combor="like" />
+         			<column name="applyTime" combor=">=" />
+         		</table>
+         	</tables>
+         </container>
+         
+         
+         
+         
+          
+</containers>
