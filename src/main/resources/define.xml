@@ -12,8 +12,9 @@
          		 <orm model="orm.ftl" floder="orm" subfix="SqlMap.xml" type="mybatis"/>
 				 <bean model="bean.ftl" package="com.lenovo.modelApp.model" floder="bean" />
 				 <dao model="dao.ftl" package="com.lenovo.modelApp.dao"  floder="dao" subfix="Dao"/> 
-				 <service model="service.ftl" package="com.lenovo.modelApp.api" floder="service" subfix="Service"/>  
-				 <serviceImpl model="serviceImpl.ftl" package="com.lenovo.modelApp.service" floder="service/impl" subfix="ServiceImpl"/> 
+				 <service model="serviceImpl.ftl" package="com.lenovo.modelApp.api" floder="service" subfix="Service"/>
+				 <!-- <service model="service.ftl" package="com.lenovo.modelApp.api" floder="service" subfix="Service"/> -->  
+				 <!-- <serviceImpl model="serviceImpl.ftl" package="com.lenovo.modelApp.service" floder="service/impl" subfix="ServiceImpl"/>  -->
 				 <controller model="controller.ftl" package="com.lenovo.controller" floder="controller" subfix="Controller"/>
          	</config>
          	

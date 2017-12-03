@@ -7,10 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import ${servicePackage}.${beanName}${serviceSubfix};
 import ${daoPackage}.${beanName}${daoSubfix};
 import ${beanpackage}.${beanName};
 @Service("${beanName}${serviceSubfix}")
-public class ${beanName}${serviceImplSubfix}{
+public class ${beanName}${serviceImplSubfix} implements ${beanName}${serviceSubfix} {
 
 	@Autowired
 	private ${beanName}${daoSubfix} dao;
