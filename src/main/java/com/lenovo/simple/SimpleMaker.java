@@ -1,18 +1,11 @@
 package com.lenovo.simple;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import org.apache.commons.lang.StringUtils;
-
 import com.lenovo.simple.configure.Container;
 import com.lenovo.simple.configure.table.DbColumn;
 import com.lenovo.simple.configure.table.Table;
-import com.lenovo.simple.dataSource.IDStragegy;
 import com.lenovo.simple.orm.exception.OrmColumnTypeServiceNotFoundException;
-import com.lenovo.simple.parse.EntityParserRegister;
 import com.lenovo.simple.util.ParamUtil;
 
 public class SimpleMaker extends AbstractMaker {
@@ -35,7 +28,7 @@ public class SimpleMaker extends AbstractMaker {
 		 param.put("beanContentlist", ParamUtil.getJavaPojoBeanContents(container.getDataSource().getType(), table));
 		 //orm
 		 try {
-			param.put("ormFields", ParamUtil.getOrmFields(container, table, "mybatis"));
+			param.put("ormFields", ParamUtil.getOrmFields(container, table));
 		 } catch (OrmColumnTypeServiceNotFoundException e) {
 			e.printStackTrace();
 		 }

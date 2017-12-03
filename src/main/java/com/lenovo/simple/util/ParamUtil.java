@@ -72,7 +72,7 @@ public class ParamUtil {
 	}
 	
 	//查询所有的属性
-	public static Map getOrmFields(Container container,Table table,String dataSourceType) throws OrmColumnTypeServiceNotFoundException {
+	public static Map getOrmFields(Container container,Table table) throws OrmColumnTypeServiceNotFoundException {
 		List<DbColumn> columns = table.getDbcolumns();
 		if ( null != columns && columns.size() > 0) {
 			Map fm = new HashMap();
@@ -81,7 +81,7 @@ public class ParamUtil {
 			for (DbColumn dc : columns) {
 				Map<String,String> f = new HashMap<String,String>();
 				f.put("coloum", dc.getColumnName());
-				f.put("ormDbtype", OrmColumnTypeFactory.getInvoker(container.getOrm().getType()).getTypeFromDbType(dc.getDataType(), dataSourceType));
+				f.put("ormDbtype", OrmColumnTypeFactory.getInvoker(container.getOrm().getType()).getTypeFromDbType(dc.getDataType(), container.getDataSource().getType()));
 				f.put("javaType", ParamUtil.getFieldType(container.getDataSource().getType(), dc.getDataType()));
 				//查询判断条件
 				if (dc.isNumber()) {

@@ -20,20 +20,20 @@
   		
   		<if test="${ormFields.pk.querycondition}" >and ${ormFields.pk.coloum}
    			<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
-  				<#if  ormFields.pk.combor = 'like'  > 
+  				<#if  ormFields.pk.combar = 'like'  > 
   					like CONCAT ${r"'%#{"}${ormFields.pk.coloum}${r"}%'"}
   				<#else>
-  				 	${ormFields.pk.combor} ${r"#{"}${ormFields.pk.coloum}${r"}"}
+  				 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
   				</#if>
   			</if> 		
   		</if> 
   		
   		<#list ormFields.fields as queryField>
   			<if test="${queryField.querycondition}" > and ${queryField.coloum} 
-  				<#if  queryField.combor = 'like'  > 
+  				<#if  queryField.combar = 'like'  > 
   					like CONCAT ${r"'%#{"}${queryField.coloum}${r"}%'"}
   				<#else>
-  				 	${queryField.combor} ${r"#{"}${queryField.coloum}${r"}"}
+  				 	${queryField.combar} ${r"#{"}${queryField.coloum}${r"}"}
   				</#if>
   			</if>
   		</#list>
@@ -46,20 +46,20 @@
 		WHERE 1=1
 		<if test="${ormFields.pk.querycondition}" >and ${ormFields.pk.coloum}
    			<if test="${ormFields.pk.querycondition}" > and ${ormFields.pk.coloum} 
-  				<#if  ormFields.pk.combor = 'like'  > 
+  				<#if  ormFields.pk.combar = 'like'  > 
   					like CONCAT ${r"'%#{"}${ormFields.pk.coloum}${r"}%'"}
   				<#else>
-  				 	${ormFields.pk.combor} ${r"#{"}${ormFields.pk.coloum}${r"}"}
+  				 	${ormFields.pk.combar} ${r"#{"}${ormFields.pk.coloum}${r"}"}
   				</#if>
   			</if> 		
   		</if> 
   		
   		<#list ormFields.fields as queryField>
   			<if test="${queryField.querycondition}" > and ${queryField.coloum} 
-  				<#if  queryField.combor = 'like'  > 
+  				<#if  queryField.combar = 'like'  > 
   					like CONCAT ${r"'%#{"}${queryField.coloum}${r"}%'"}
   				<#else>
-  				 	${queryField.combor} ${r"#{"}${queryField.coloum}${r"}"}
+  				 	${queryField.combar} ${r"#{"}${queryField.coloum}${r"}"}
   				</#if>
   			</if>
   		</#list>
